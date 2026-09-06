@@ -1,0 +1,10 @@
+node_modules/
+skills/copycat/scripts/node_modules/
+skills/copycat/scripts/package-lock.json
+
+# capture output (never commit a captured site)
+/copycat/
+**/copycat-out/
+*.log
+.DS_Store
+Thumbs.db

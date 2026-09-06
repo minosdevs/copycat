@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "minosdevs-copycat",
+  "description": "Plugins Claude Code par Minos (@minosdevs). copycat : cloner un site a l'identique depuis une URL.",
+  "owner": {
+    "name": "Minos",
+    "url": "https://github.com/minosdevs"
+  },
+  "plugins": [
+    {
+      "name": "copycat",
+      "description": "URL -> clone pixel-perfect. Capture Playwright complete (full-page, folds, sections, hover, desktop/tablet/mobile), extraction des design tokens et assets, reconstruction guidee, verification par diff pixel + console propre. Commande : /copycat <url>.",
+      "author": {
+        "name": "Minos",
+        "url": "https://github.com/minosdevs"
+      },
+      "category": "development",
+      "source": "./",
+      "homepage": "https://github.com/minosdevs/copycat"
+    }
+  ]
+}
