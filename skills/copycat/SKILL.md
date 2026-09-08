@@ -64,15 +64,15 @@ node <chemin-du-skill>/scripts/capture.mjs https://exemple.com --out copycat/exe
 
 Options utiles : `--depth 1` (pages du nav, max `--max-pages 8`), `--viewports desktop,mobile` ou
 `--viewports large:1920x1080,desktop`, `--scale 2` (retina, plus lourd), `--dark`, `--locale fr-FR`,
-`--wait 3000` (sites lents / animations d'intro), `--videos`, `--headed` (voir ce qui se passe),
-`--no-hover` (plus rapide). Compte 1 à 2 minutes pour 3 viewports.
+`--wait 3000` (sites lents / animations d'intro), `--videos`, `--channel chrome|msedge` (vrai navigateur
+installé, pour les sites protégés), `--headed` (voir ce qui se passe), `--no-hover` (plus rapide). Compte 1 à 2 minutes pour 3 viewports.
 
 Le script gère déjà : le scroll complet pour déclencher le lazy-load et les reveal-on-scroll, les
 bannières cookies (masquées en CSS, **sans** cliquer « accepter »), les pages trop hautes pour la
 capture native (stitching des folds), les stylesheets cross-origin (téléchargées), les `@font-face`
 relatifs au CSS, les proxys d'images (`/_next/image?url=`), les SVG inline (logos).
 
-Si le site bloque le headless (Cloudflare, page blanche, 403) : relance avec `--headed`, ou ouvre
+Si le site bloque le headless (Cloudflare, page blanche, 403, screenshot qui time out) : relance avec `--channel chrome` (le vrai Chrome installé, en headless — passe la plupart des murs anti-bot), sinon `--headed`, ou ouvre
 l'URL dans le Browser pane, fais les screenshots à la main avec `computer` et exécute le contenu de
 `extract.browser.js` via `javascript_tool` puis `JSON.stringify(__copycatExtract())`. Tu obtiens le
 même JSON que `manifest.json → design`.

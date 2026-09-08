@@ -5,7 +5,7 @@
  *   node capture.mjs <url> [--out dir] [--viewports desktop,tablet,mobile | name:WxH,...]
  *                          [--scale 1|2] [--depth 0|1] [--max-pages 8] [--no-assets] [--no-css]
  *                          [--no-hover] [--headed] [--locale en-US] [--dark] [--timeout 45000]
- *                          [--wait 0] [--videos]
+ *                          [--wait 0] [--videos] [--channel chrome|msedge]  (real Chrome: passes most bot walls)
  *
  * Output (default ./copycat/<host>/):
  *   REPORT.md                 ← read this first
@@ -82,7 +82,7 @@ const manifest = {
 
 const rel = (p) => path.relative(OUT, p).split(path.sep).join('/');
 
-const browser = await chromium.launch({ headless: !args.headed });
+const browser = await chromium.launch({ headless: !args.headed, channel: args.channel || undefined, args: args.channel ? ['--disable-blink-features=AutomationControlled'] : [] });
 const t0 = Date.now();
 
 try {

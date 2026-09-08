@@ -8,3 +8,7 @@ skills/copycat/scripts/package-lock.json
 *.log
 .DS_Store
 Thumbs.db
+
+# local clones / tooling (never commit third-party site assets)
+/clones/
+.claude/

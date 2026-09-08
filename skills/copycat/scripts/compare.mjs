@@ -39,7 +39,7 @@ const wanted = args.viewports ? Object.keys(parseViewports(args.viewports)) : Ob
 const rel = (p) => path.relative(OUT, p).split(path.sep).join('/');
 
 const result = { tool: 'copycat compare', original: orig.url, clone: cloneUrl, comparedAt: new Date().toISOString(), viewports: {}, design: null, verdict: null };
-const browser = await chromium.launch({ headless: !args.headed });
+const browser = await chromium.launch({ headless: !args.headed, channel: args.channel || undefined, args: args.channel ? ['--disable-blink-features=AutomationControlled'] : [] });
 try {
   for (const name of wanted) {
     const vp = orig.options.viewports[name];

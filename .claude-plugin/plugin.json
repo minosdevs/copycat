@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "copycat",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Clone un site web a l'identique depuis une URL : capture Playwright complete (full-page, folds, sections, hover, 3 viewports), extraction des design tokens (fonts, CSS vars, palette, typo, layout, animations, assets, console), reconstruction section par section et verification par diff pixel. Commande : /copycat <url>.",
   "author": {
     "name": "Minos",

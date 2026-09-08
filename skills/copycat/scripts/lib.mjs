@@ -88,7 +88,7 @@ export function attachRecorders(page) {
 export async function hideConsentOverlays(page) {
   try {
     return await page.evaluate(() => {
-      const re = /cookie|consent|gdpr|onetrust|cookiebot|didomi|axeptio|tarteaucitron|cc-window|cc-banner|usercentrics|osano|iubenda|klaro|cky-|truste|privacy-banner|cmp-/i;
+      const re = /cookie|consent|gdpr|onetrust|cookiebot|didomi|axeptio|tarteaucitron|cc-window|cc-banner|usercentrics|osano|iubenda|klaro|cky-|truste|privacy-banner|cmp-|trial-modal/i;
       let hidden = 0;
       const els = Array.from(document.querySelectorAll('body *'));
       for (const el of els) {
@@ -191,7 +191,7 @@ export async function foldShots(page, dir, prefix, { maxFolds = 40, settle = 700
     await page.waitForTimeout(settle);
     if (i === 1 && hideFixedAfterFirst) await toggleFixed(page, false);
     const file = path.join(dir, `${prefix}-fold-${pad2(i + 1)}.png`);
-    await page.screenshot({ path: file, animations: 'disabled', caret: 'hide' });
+    await page.screenshot({ path: file, animations: 'disabled', caret: 'hide', timeout: 120000 });
     shots.push({ file, y, h: Math.min(vh, total - y) });
   }
   if (hideFixedAfterFirst && i > 1) await toggleFixed(page, true);

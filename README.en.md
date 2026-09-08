@@ -153,7 +153,7 @@ also captures the pages linked from the nav.
 forces Next.js components as output.
 
 You can also run the scripts directly (options: `--viewports desktop,mobile`, `--scale 2`, `--dark`,
-`--locale fr-FR`, `--wait 3000`, `--videos`, `--headed`, `--no-hover`, `--no-assets`).
+`--locale fr-FR`, `--wait 3000`, `--videos`, `--channel chrome` (real installed Chrome: gets past Cloudflare and most bot walls), `--headed`, `--no-hover`, `--no-assets`).
 
 ### Without Playwright: the DevTools console
 

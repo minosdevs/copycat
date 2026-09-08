@@ -8,7 +8,10 @@ avec leur chemin complet (`node <skill>/scripts/capture.mjs …`), ils résolven
 propre dossier.
 
 **Page blanche / 403 / « Just a moment… » (Cloudflare, Vercel bot protection, Akamai)** — le headless
-est détecté. Dans l'ordre : `--headed` (fenêtre visible, souvent suffisant), `--wait 5000`, puis le
+est détecté. Dans l'ordre : `--channel chrome` (ou `--channel msedge`) pour lancer le **vrai** Chrome
+installé en headless au lieu du Chromium de Playwright — ça passe Cloudflare dans la grande majorité
+des cas et c'est ce qu'il faut essayer en premier ; puis `--headed` (fenêtre visible, ne marche pas
+depuis un shell sandboxé), `--wait 5000`, puis le
 plan B manuel : ouvre l'URL dans le Browser pane (`preview_start {url}`), screenshots avec `computer`
 fold par fold (`scroll` puis `screenshot`), et `javascript_tool` avec le contenu de
 `extract.browser.js` suivi de `JSON.stringify(__copycatExtract())` → écris le résultat dans
@@ -42,6 +45,10 @@ sous licence (Typekit, fonts.com), elle n'est pas téléchargeable : choisis une
 **Images nommées `image.png`, `image-1a2b3c.png`** — proxy d'images non reconnu. Regarde
 `manifest.assets[i].url` pour retrouver la source et renomme. Les `_next/image`, `?url=`, `?src=`
 sont déjà gérés.
+
+**`page.screenshot: Timeout 30000ms exceeded` sur le premier fold** — c'est presque toujours une page
+de blocage anti-bot (le screenshot attend des fonts/animations qui n'arrivent jamais). Vérifie avec
+`--channel chrome` avant de chercher ailleurs ; le timeout des folds est à 120 s.
 
 **Capture très longue (> 4 min)** — page très haute ou lourde. `--viewports desktop,mobile`,
 `--no-hover`, `--no-assets` pour un premier passage rapide, puis une deuxième capture complète

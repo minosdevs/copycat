@@ -153,7 +153,8 @@ capture aussi les pages du menu.
 force la sortie en composants Next.js.
 
 Tu peux aussi lancer les scripts à la main (options : `--viewports desktop,mobile`, `--scale 2`,
-`--dark`, `--locale fr-FR`, `--wait 3000`, `--videos`, `--headed`, `--no-hover`, `--no-assets`).
+`--dark`, `--locale fr-FR`, `--wait 3000`, `--videos`, `--channel chrome` (vrai Chrome installé : passe
+Cloudflare et la plupart des protections anti-bot), `--headed`, `--no-hover`, `--no-assets`).
 
 ### Sans Playwright : la console DevTools
 
